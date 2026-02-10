@@ -508,3 +508,21 @@ def statistical_validation(user_id: str):
         "confidence_z": round(z_score, 3),
         "interpretation": interpret_confidence(z_score),
     }
+
+# ==================================================
+# PRIVACY POLICY ENDPOINT (REQUIRED FOR GPT ACTIONS)
+# ==================================================
+
+@app.get("/privacy")
+def privacy():
+    return {
+        "service": "EPHEMERIS-01",
+        "policy": (
+            "EPHEMERIS-01 does not store, sell, or share personal data. "
+            "Birth details and life events are processed only to generate "
+            "symbolic astrological interpretations requested directly by the user. "
+            "No tracking, advertising, or third-party data sharing is performed."
+        ),
+        "data_storage": "Minimal temporary processing only",
+        "contact": "Vansh Bhatnagar"
+    }
