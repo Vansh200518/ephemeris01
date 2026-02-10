@@ -526,3 +526,34 @@ def privacy():
         "data_storage": "Minimal temporary processing only",
         "contact": "Vansh Bhatnagar"
     }
+
+from fastapi.responses import HTMLResponse
+
+# ==================================================
+# PRIVACY POLICY ENDPOINT (REQUIRED FOR CUSTOM GPT)
+# ==================================================
+
+@app.get("/privacy", response_class=HTMLResponse)
+def privacy():
+    return """
+    <html>
+        <head>
+            <title>EPHEMERIS-01 Privacy Policy</title>
+        </head>
+        <body>
+            <h1>EPHEMERIS-01 Privacy Policy</h1>
+            <p>
+                EPHEMERIS-01 does not store, sell, or share personal data.
+                Birth details and life events are processed only to generate
+                symbolic astrological interpretations requested directly by the user.
+            </p>
+            <p>
+                No tracking, advertising, or third-party data sharing is performed.
+                Data is used only for temporary computation.
+            </p>
+            <p>
+                Contact: Vansh Bhatnagar
+            </p>
+        </body>
+    </html>
+    """
